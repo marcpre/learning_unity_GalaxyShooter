@@ -16,8 +16,12 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        transform.Translate(Vector3.right * Time.deltaTime * speed); // "speed" meters per second
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime); // "speed" meters per second
+        transform.Translate(Vector3.up * speed * verticalInput * Time.deltaTime); // "speed" meters per second
+
     }
 
-    // --> stopped at 015
+    // --> stopped at 018
 }
