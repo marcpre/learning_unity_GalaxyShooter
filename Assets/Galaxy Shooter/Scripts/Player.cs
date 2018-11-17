@@ -29,7 +29,25 @@ public class Player : MonoBehaviour {
             transform.position = new Vector3(transform.position.x, -4.2f, 0);
         }
 
+        /*
+        if(transform.position.x > 8)
+        {
+            transform.position = new Vector3(8, transform.position.y, 0);
+        } else if(transform.position.x < -8)
+        {
+            transform.position = new Vector3(-8, transform.position.y, 0);
+        }
+        */
+        if (transform.position.x > 9.5f)
+        {
+            transform.position = new Vector3(-9.5f, transform.position.y, 0);
+        }
+        else if (transform.position.x < -9.5f)
+        {
+            transform.position = new Vector3(9.5f, transform.position.y, 0);
+        }
+
     }
 
-    // --> stopped at 018
+    // --> stopped at 020
 }
