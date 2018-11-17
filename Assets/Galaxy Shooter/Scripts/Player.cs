@@ -21,6 +21,14 @@ public class Player : MonoBehaviour {
         transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime); // "speed" meters per second
         transform.Translate(Vector3.up * speed * verticalInput * Time.deltaTime); // "speed" meters per second
 
+        if(transform.position.y > 0)
+        {
+            transform.position = new Vector3(transform.position.x, 0, 0);
+        } else if(transform.position.y < -4.2f)
+        {
+            transform.position = new Vector3(transform.position.x, -4.2f, 0);
+        }
+
     }
 
     // --> stopped at 018
