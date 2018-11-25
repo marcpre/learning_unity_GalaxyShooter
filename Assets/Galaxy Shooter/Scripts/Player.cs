@@ -6,6 +6,9 @@ public class Player : MonoBehaviour {
 
     public GameObject laserPrefab;
 
+    public float fireRate = 0.25f;
+    public float canFire = 0.0f;
+
     [SerializeField]
     private float speed = 5.0f;
 
@@ -23,7 +26,11 @@ public class Player : MonoBehaviour {
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(laserPrefab, transform.position + new Vector3(0,0.88f,0), Quaternion.identity);
+            if(Time.time > canFire)
+            {
+                Instantiate(laserPrefab, transform.position + new Vector3(0, 0.88f, 0), Quaternion.identity);
+                canFire = Time.time + fireRate;
+            }
         }
     }
 
@@ -62,5 +69,5 @@ public class Player : MonoBehaviour {
         }
     }
 
-    // --> stopped at 024
+    // --> stopped at 027
 }
